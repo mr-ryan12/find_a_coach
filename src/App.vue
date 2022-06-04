@@ -18,7 +18,6 @@ export default {
 	provide() {
 		return {
 			topics: this.topics,
-			selected: this.selected
 		}
 	},
   components: {
