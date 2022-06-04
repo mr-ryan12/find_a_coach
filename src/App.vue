@@ -1,5 +1,7 @@
 <template>
-  <TheNavigation />
+  <main>
+    <TheNavigation />
+  </main>
 </template>
 
 
