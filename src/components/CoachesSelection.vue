@@ -35,6 +35,10 @@
         <section class="label-container">
           <p v-for="topic in coach.topics" :key="topic" :class="topic">{{ topic.toUpperCase() }}</p>
         </section>
+        <section class="contact-link-container">
+          <a class="contact-link">Contact</a>
+          <a class="view-details-link">View Details</a>
+        </section>
       </section>
     </section>
   </section>
@@ -87,12 +91,14 @@ h2 {
   font-size: 2vh;
 }
 
-.refresh-button {
+.refresh-button,
+.contact-link {
   border: 1px solid #3d008d;
   background: none;
 }
 
-.register-button {
+.register-button,
+.view-details-link {
   background-color: #3d008d;
   color: #fff;
   border-color: #3d008d;
@@ -135,4 +141,24 @@ h2 {
 .career {
   background-color: #8d006e;
 }
+
+.contact-link-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.contact-link,
+.view-details-link {
+  margin: 0 1rem 0 0;
+  padding: 15px;
+  border-radius: 20px;
+}
+
+// .contact-link {
+//   border: 1px solid black;
+// }
+
+// .view-details {
+
+// }
 </style>
