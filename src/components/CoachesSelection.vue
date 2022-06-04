@@ -29,6 +29,10 @@
         <button class="refresh-button">Refresh</button>
         <button class="register-button">Register as Coach</button>
       </section>
+      <section class="coach-card" v-for="coach in coaches" :key="coach.id">
+        <h3>{{ coach.firstName }} {{ coach.lastName }}</h3>
+        <p>{{ `$${coach.rate}/hour` }}</p>
+      </section>
     </section>
   </section>
 </template>
@@ -89,5 +93,11 @@ h2 {
   background-color: #3d008d;
   color: #fff;
   border-color: #3d008d;
+}
+
+.coach-card {
+  border: 1px solid black;
+  padding: 1.5rem;
+  margin: 1rem 0rem;
 }
 </style>
