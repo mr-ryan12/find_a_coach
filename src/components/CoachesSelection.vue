@@ -32,6 +32,11 @@
       <section class="coach-card" v-for="coach in coaches" :key="coach.id">
         <h3>{{ coach.firstName }} {{ coach.lastName }}</h3>
         <p>{{ `$${coach.rate}/hour` }}</p>
+        <section class="topics-button-container">
+          <p>Frontend</p>
+          <p>Backend</p>
+          <p>Career</p>
+        </section>
       </section>
     </section>
   </section>
@@ -99,5 +104,20 @@ h2 {
   border: 1px solid black;
   padding: 1.5rem;
   margin: 1rem 0rem;
+}
+
+.topics-button-container {
+  display: flex;
+}
+
+.topics-button-container > p {
+  width: 7rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  background-color: red;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin: 1rem 1rem 0 0;
 }
 </style>
