@@ -70,10 +70,8 @@ export default {
     },
     filterCoaches(event) {
       if (!this.topics.includes(event.target.value) && event.target.checked) {
-        console.log('here')
         this.topics.push(event.target.value)
       } else if (this.topics.length > 0 && !event.target.checked) {
-        console.log('there')
         this.topics = this.topics.filter(topic => topic !== event.target.value)
       }
       this.reset()
