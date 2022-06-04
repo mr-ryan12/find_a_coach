@@ -23,6 +23,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Anek+Telugu&display=swap');
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
   v2.0 | 20110126
   License: none (public domain)
@@ -70,5 +72,9 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+#app {
+  font-family: 'Anek Telugu', sans-serif;
 }
 </style>

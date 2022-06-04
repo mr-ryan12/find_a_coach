@@ -31,6 +31,11 @@
 </template>
 
 <style lang="scss" scoped>
+h2 {
+  font-size: 3vh;
+  font-weight: 900;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
