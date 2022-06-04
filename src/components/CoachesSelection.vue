@@ -58,7 +58,7 @@ export default {
   data() {
     return this.initialState()
   },
-  inject: ['topics', 'selected'],
+  inject: ['topics'],
   methods: {
     initialState() {
       return {

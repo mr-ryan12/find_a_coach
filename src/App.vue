@@ -13,11 +13,6 @@ export default {
 	data() {
 		return {
 			topics: ['frontend', 'backend', 'career'],
-			selected: {
-				frontend: true,
-				backend: true,
-				career: true
-			}
 		}
 	},
 	provide() {
