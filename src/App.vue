@@ -12,12 +12,18 @@ import TheNavigation from './components/TheNavigation'
 export default {
 	data() {
 		return {
-			topics: []
+			topics: ['frontend', 'backend', 'career'],
+			selected: {
+				frontend: true,
+				backend: true,
+				career: true
+			}
 		}
 	},
 	provide() {
 		return {
-			topics: this.topics
+			topics: this.topics,
+			selected: this.selected
 		}
 	},
   components: {

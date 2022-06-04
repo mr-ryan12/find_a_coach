@@ -4,12 +4,12 @@
       <h2>Find Your Coach</h2>
       <br />
       <section class="checkbox-container">
-        <input 
+        <input
           type="checkbox"
           id="frontend"
           name="frontend"
           value="frontend"
-          v-model="topics"
+          checked
           @change="filterCoaches"
         />
         <label for="frontend">Frontend</label>
@@ -18,7 +18,7 @@
           id="backend"
           name="backend"
           value="backend"
-          v-model="topics"
+          checked
           @change="filterCoaches"
         />
         <label for="backend">Backend</label>
@@ -27,7 +27,7 @@
           id="career"
           name="career"
           value="career"
-          v-model="topics"
+          checked
           @change="filterCoaches"
         />
         <label for="career">Career</label>
@@ -58,7 +58,7 @@ export default {
   data() {
     return this.initialState()
   },
-  inject: ['topics'],
+  inject: ['topics', 'selected'],
   methods: {
     initialState() {
       return {
@@ -68,8 +68,14 @@ export default {
         ],
       }
     },
-    filterCoaches() {
-      console.log(this.coaches)
+    filterCoaches(event) {
+      if (!this.topics.includes(event.target.value) && event.target.checked) {
+        console.log('here')
+        this.topics.push(event.target.value)
+      } else if (this.topics.length > 0 && !event.target.checked) {
+        console.log('there')
+        this.topics = this.topics.filter(topic => topic !== event.target.value)
+      }
       this.reset()
       const filteredCoaches = []
       this.coaches.forEach(coach => {
@@ -77,11 +83,9 @@ export default {
           filteredCoaches.push(coach)
         }
       })
-      console.log(filteredCoaches)
       this.coaches = filteredCoaches
     },
     reset() {
-      console.log(this.$data)
       return Object.assign(this.$data, this.initialState())
     }
   }
