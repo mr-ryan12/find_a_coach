@@ -51,10 +51,8 @@ nav {
   border: none;
   color: #f391e3;
   font-size: 1.05rem;
-}
-
-.all-coaches-btn,
-.requests-btn:hover {
-  border: 1px solid #f391e3
+  &:hover {
+    border: 1px solid #f391e3;
+  }
 }
 </style>
