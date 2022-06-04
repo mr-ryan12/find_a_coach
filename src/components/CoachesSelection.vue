@@ -25,7 +25,10 @@
       </section>
     </section>
     <section class="coaches-container">
-
+      <section class="header-button-container">
+        <button class="refresh-button">Refresh</button>
+        <button class="register-button">Register as Coach</button>
+      </section>
     </section>
   </section>
 </template>
@@ -42,13 +45,36 @@ h2 {
   justify-content: center;
   align-items: center;
 }
+
 .find-coach-container,
 .coaches-container {
   width: 50%;
-  // height: 10vh;
   margin-top: 5vh;
   box-shadow: 0px 0px 20px grey;
   padding: 20px;
   border-radius: 20px;
+}
+
+.header-button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-button-container > button {
+  width: auto;
+  border-radius: 20px;
+  padding: 15px;
+  font-size: 2vh;
+}
+
+.refresh-button {
+  border: 1px solid #3d008d;
+  background: none;
+}
+
+.register-button {
+  background-color: #3d008d;
+  color: #fff;
+  border-color: #3d008d;
 }
 </style>
