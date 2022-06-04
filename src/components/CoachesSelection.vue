@@ -8,18 +8,27 @@
           type="checkbox"
           id="frontend"
           name="frontend"
+          value="frontend"
+          v-model="topics"
+          @change="filterCoaches"
         />
         <label for="frontend">Frontend</label>
         <input
           type="checkbox"
           id="backend"
           name="backend"
+          value="backend"
+          v-model="topics"
+          @change="filterCoaches"
         />
         <label for="backend">Backend</label>
         <input
           type="checkbox"
           id="career"
           name="career"
+          value="career"
+          v-model="topics"
+          @change="filterCoaches"
         />
         <label for="career">Career</label>
       </section>
@@ -47,11 +56,33 @@
 <script>
 export default {
   data() {
-    return {
-      coaches: [
-        { id: 1, firstName: 'Maximilian', lastName: 'Schwarzmüller', rate: 30, topics: ['frontend', 'backend', 'career'] },
-        { id: 2, firstName: 'Julie', lastName: 'Jones', rate: 30, topics: ['frontend', 'career'] }
-      ]
+    return this.initialState()
+  },
+  inject: ['topics'],
+  methods: {
+    initialState() {
+      return {
+        coaches: [
+          { id: 1, firstName: 'Maximilian', lastName: 'Schwarzmüller', rate: 30, topics: ['frontend', 'backend', 'career'] },
+          { id: 2, firstName: 'Julie', lastName: 'Jones', rate: 30, topics: ['frontend', 'career'] }
+        ],
+      }
+    },
+    filterCoaches() {
+      console.log(this.coaches)
+      this.reset()
+      const filteredCoaches = []
+      this.coaches.forEach(coach => {
+        if (this.topics.some(topic => coach.topics.includes(topic))) {
+          filteredCoaches.push(coach)
+        }
+      })
+      console.log(filteredCoaches)
+      this.coaches = filteredCoaches
+    },
+    reset() {
+      console.log(this.$data)
+      return Object.assign(this.$data, this.initialState())
     }
   }
 }

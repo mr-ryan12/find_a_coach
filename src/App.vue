@@ -10,6 +10,16 @@
 import TheNavigation from './components/TheNavigation'
 
 export default {
+	data() {
+		return {
+			topics: []
+		}
+	},
+	provide() {
+		return {
+			topics: this.topics
+		}
+	},
   components: {
     TheNavigation
   }
