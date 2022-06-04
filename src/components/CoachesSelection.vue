@@ -34,8 +34,6 @@
         <p>{{ `$${coach.rate}/hour` }}</p>
         <section class="label-container">
           <p v-for="topic in coach.topics" :key="topic" :class="topic">{{ topic.toUpperCase() }}</p>
-          <!-- <p>Backend</p>
-          <p>Career</p> -->
         </section>
       </section>
     </section>
@@ -50,17 +48,6 @@ export default {
         { id: 1, firstName: 'Maximilian', lastName: 'Schwarzmüller', rate: 30, topics: ['frontend', 'backend', 'career'] },
         { id: 2, firstName: 'Julie', lastName: 'Jones', rate: 30, topics: ['frontend', 'career'] }
       ]
-    }
-  },
-  computed: {
-    checkTopic(topic) {
-      if (topic === 'frontend') {
-        return 'frontend'
-      } else if (topic === 'backend') {
-        return 'backend'
-      } else {
-        return 'career'
-      }
     }
   }
 }
