@@ -3,8 +3,8 @@
     <section class="content-container">
       <h1 class="main-title">Find a Coach</h1>
       <section class="nav-link-container">
-        <button class="all-coaches-btn" @click="setActiveButton" :class="{active: isCoachesBtnActive}">All Coaches</button>
-        <button class="requests-btn" @click="setActiveButton" :class="{active: isRequestsBtnActive}">Requests</button>
+        <RouterLink to="/coaches" @click="setActiveButton" :class="{ active: isCoachesBtnActive }">All Coaches</RouterLink>
+        <RouterLink to="requests" @click="setActiveButton" :class="{ active: isRequestsBtnActive }">Requests</RouterLink>
       </section>
     </section>
   </nav>
@@ -60,12 +60,13 @@ nav {
   width: 20vw;
 }
 
-.all-coaches-btn,
-.requests-btn {
+a {
   width: 9vw;
   height: 5vh;
+  line-height: 5vh;
+  text-align: center;
   background: none;
-  border: none;
+  border: 1px solid transparent;
   color: #f391e3;
   font-size: 1.05rem;
   &:hover {
@@ -73,7 +74,11 @@ nav {
   }
 }
 
-.active {
+a.router-link-active {
   border: 1px solid #f391e3;
+}
+
+a {
+  text-decoration: none;
 }
 </style>
