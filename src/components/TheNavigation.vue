@@ -3,12 +3,29 @@
     <section class="content-container">
       <h1 class="main-title">Find a Coach</h1>
       <section class="nav-link-container">
-        <button class="all-coaches-btn">All Coaches</button>
-        <button class="requests-btn">Requests</button>
+        <button class="all-coaches-btn" @click="setActiveButton" :class="{active: isCoachesBtnActive}">All Coaches</button>
+        <button class="requests-btn" @click="setActiveButton" :class="{active: isRequestsBtnActive}">Requests</button>
       </section>
     </section>
   </nav>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      isCoachesBtnActive: true,
+      isRequestsBtnActive: false
+    }
+  },
+  methods: {
+    setActiveButton() {
+      this.isCoachesBtnActive = !this.isCoachesBtnActive
+      this.isRequestsBtnActive = !this.isRequestsBtnActive
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 @import '../styles/variables.scss';
@@ -54,5 +71,9 @@ nav {
   &:hover {
     border: 1px solid #f391e3;
   }
+}
+
+.active {
+  border: 1px solid #f391e3;
 }
 </style>
