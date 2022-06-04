@@ -3,8 +3,8 @@
     <section class="content-container">
       <h1 class="main-title">Find a Coach</h1>
       <section class="nav-link-container">
-        <h2 class="all-coaches-btn">All Coaches</h2>
-        <h2 class="requests-btn">Requests</h2>
+        <button class="all-coaches-btn">All Coaches</button>
+        <button class="requests-btn">Requests</button>
       </section>
     </section>
   </nav>
@@ -41,15 +41,20 @@ nav {
   justify-content: space-between;
   align-items: center;
   width: 20vw;
-  font-size: 1.25rem;
-  color: #f391e3;
 }
 
 .all-coaches-btn,
 .requests-btn {
-  padding: 12px;
-  &:hover {
-    border: 1px solid #f391e3;
-  }
+  width: 9vw;
+  height: 5vh;
+  background: none;
+  border: none;
+  color: #f391e3;
+  font-size: 1.05rem;
+}
+
+.all-coaches-btn,
+.requests-btn:hover {
+  border: 1px solid #f391e3
 }
 </style>
