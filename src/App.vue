@@ -1,8 +1,6 @@
 <template>
   <main>
     <TheNavigation />
-    <!-- <CoachesSelection />
-    <TheRequests /> -->
     <RouterView />
   </main>
 </template>
@@ -10,14 +8,10 @@
 
 <script>
 import TheNavigation from './components/TheNavigation'
-// import CoachesSelection from './components/CoachesSelection.vue'
-// import TheRequests from './components/TheRequests.vue'
 
 export default {
   components: {
-    TheNavigation,
-    // CoachesSelection,
-    // TheRequests
+    TheNavigation
   }
 }
 </script>
