@@ -30,12 +30,12 @@
         <button class="register-button">Register as Coach</button>
       </section>
       <section class="coach-card" v-for="coach in coaches" :key="coach.id">
-        <h3>{{ coach.firstName }} {{ coach.lastName }}</h3>
+        <h3 class="coach-name">{{ coach.firstName }} {{ coach.lastName }}</h3>
         <p>{{ `$${coach.rate}/hour` }}</p>
-        <section class="topics-button-container">
-          <p>Frontend</p>
-          <p>Backend</p>
-          <p>Career</p>
+        <section class="label-container">
+          <p v-for="topic in coach.topics" :key="topic" :class="topic">{{ topic.toUpperCase() }}</p>
+          <!-- <p>Backend</p>
+          <p>Career</p> -->
         </section>
       </section>
     </section>
@@ -50,6 +50,17 @@ export default {
         { id: 1, firstName: 'Maximilian', lastName: 'Schwarzmüller', rate: 30, topics: ['frontend', 'backend', 'career'] },
         { id: 2, firstName: 'Julie', lastName: 'Jones', rate: 30, topics: ['frontend', 'career'] }
       ]
+    }
+  },
+  computed: {
+    checkTopic(topic) {
+      if (topic === 'frontend') {
+        return 'frontend'
+      } else if (topic === 'backend') {
+        return 'backend'
+      } else {
+        return 'career'
+      }
     }
   }
 }
@@ -106,18 +117,35 @@ h2 {
   margin: 1rem 0rem;
 }
 
-.topics-button-container {
+.coach-name {
+  font-size: 2rem;
+}
+
+.label-container {
   display: flex;
 }
 
-.topics-button-container > p {
+.label-container > p {
   width: 7rem;
   height: 2.5rem;
   line-height: 2.5rem;
   text-align: center;
-  background-color: red;
+  color: #fff;
+  font-weight: 900;
   border: 1px solid black;
   border-radius: 20px;
   margin: 1rem 1rem 0 0;
+}
+
+.frontend {
+  background-color: #3d008d;
+}
+
+.backend {
+  background-color: #71008d;
+}
+
+.career {
+  background-color: #8d006e;
 }
 </style>
