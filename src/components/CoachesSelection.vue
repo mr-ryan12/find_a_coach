@@ -153,12 +153,4 @@ h2 {
   padding: 15px;
   border-radius: 20px;
 }
-
-// .contact-link {
-//   border: 1px solid black;
-// }
-
-// .view-details {
-
-// }
 </style>
