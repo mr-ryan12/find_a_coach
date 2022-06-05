@@ -1,8 +1,28 @@
 <template>
-  <base-container>
-    <h2 class="name">Ryan McBrizzle</h2>
-    <p class="rate">$1,000,000/second</p>
-  </base-container>
+  <section>
+    <base-container>
+      <h2 class="name">Ryan McBrizzle</h2>
+      <p class="rate">$1,000,000/second</p>
+    </base-container>
+    <base-container>
+      <h2 class="form-title">Interested? Reach out now!</h2>
+      <form>
+        <label for="email">Your E-Mail</label>
+        <input 
+          type="email"
+          name="email"
+          v-model="email"
+        />
+        <label for="message">Message</label>
+        <input
+          type="textarea"
+          name="message"
+          v-model="message"
+        />
+        <button>Send Message</button>
+      </form>
+    </base-container>
+  </section>
 </template>
 
 <script>
@@ -11,17 +31,22 @@ import BaseContainer from '../ui/BaseContainer.vue'
 export default {
   data() {
     return {
-      
+      email: '',
+      message: ''
     }
   },
   components: {
     BaseContainer
+  },
+  mounted() {
+    console.log(this.$route.params.id)
   }
 }
 </script>
 
 <style scoped>
-.name {
+.name,
+.form-title {
   font-size: 3vh;
   font-weight: 900;
   margin-bottom: 2vh;
@@ -29,5 +54,11 @@ export default {
 
 .rate {
   font-weight: 900;
+}
+
+form {
+  border: 1px solid grey;
+  height: 90%;
+  width: 70%
 }
 </style>
