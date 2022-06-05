@@ -6,21 +6,23 @@
     </base-container>
     <base-container>
       <h2 class="form-title">Interested? Reach out now!</h2>
-      <form>
-        <label for="email">Your E-Mail</label>
-        <input 
-          type="email"
-          name="email"
-          v-model="email"
-        />
-        <label for="message">Message</label>
-        <input
-          type="textarea"
-          name="message"
-          v-model="message"
-        />
-        <button>Send Message</button>
-      </form>
+      <section class="form-container">
+        <form>
+          <label for="email">Your E-Mail</label>
+          <input 
+            type="email"
+            name="email"
+            v-model="email"
+          />
+          <label for="message">Message</label>
+          <input
+            type="textarea"
+            name="message"
+            v-model="message"
+          />
+          <button>Send Message</button>
+        </form>
+      </section>
     </base-container>
   </section>
 </template>
@@ -57,8 +59,16 @@ export default {
 }
 
 form {
+  align-self: center;
   border: 1px solid grey;
   height: 90%;
-  width: 70%
+  width: 70%;
+  padding: 20px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
