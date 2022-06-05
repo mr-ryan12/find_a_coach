@@ -2,6 +2,7 @@
   <main>
     <TheNavigation />
     <RouterView />
+		<button @click="this.$store.commit('addCoach')">see state</button>
   </main>
 </template>
 
@@ -22,7 +23,10 @@ export default {
 	},
   components: {
     TheNavigation
-  }
+  },
+	mounted() {
+		console.log(this.$store.state.coaches)
+	}
 }
 </script>
 

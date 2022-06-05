@@ -37,7 +37,7 @@
       <button class="refresh-button">Refresh</button>
       <button class="register-button">Register as Coach</button>
     </section>
-    <section class="coach-card" v-for="coach in coaches" :key="coach.id">
+    <section class="coach-card" v-for="coach in setCoaches" :key="coach.id">
       <h3 class="coach-name">{{ coach.firstName }} {{ coach.lastName }}</h3>
       <p>{{ `$${coach.rate}/hour` }}</p>
       <section class="label-container">
@@ -55,39 +55,30 @@
 import BaseContainer from '../ui/BaseContainer.vue'
 
 export default {
-  data() {
-    return this.initialState()
-  },
   components: {
     BaseContainer
   },
   inject: ['topics'],
   methods: {
-    initialState() {
-      return {
-        coaches: [
-          { id: 1, firstName: 'Maximilian', lastName: 'Schwarzmüller', rate: 30, topics: ['frontend', 'backend', 'career'] },
-          { id: 2, firstName: 'Julie', lastName: 'Jones', rate: 30, topics: ['frontend', 'career'] }
-        ],
-      }
-    },
     filterCoaches(event) {
       if (!this.topics.includes(event.target.value) && event.target.checked) {
         this.topics.push(event.target.value)
       } else if (this.topics.length > 0 && !event.target.checked) {
         this.topics = this.topics.filter(topic => topic !== event.target.value)
       }
-      this.reset()
+      this.$store.dispatch('setInitialState')
       const filteredCoaches = []
-      this.coaches.forEach(coach => {
+      this.setCoaches.forEach(coach => {
         if (this.topics.some(topic => coach.topics.includes(topic))) {
           filteredCoaches.push(coach)
         }
       })
-      this.coaches = filteredCoaches
+      this.$store.dispatch('setFilterCoaches', {filteredCoaches: filteredCoaches})
     },
-    reset() {
-      return Object.assign(this.$data, this.initialState())
+  },
+  computed: {
+    setCoaches() {
+      return this.$store.getters.getCoaches
     }
   }
 }
