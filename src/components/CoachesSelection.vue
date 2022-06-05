@@ -44,7 +44,7 @@
         <p v-for="topic in coach.topics" :key="topic" :class="topic">{{ topic.toUpperCase() }}</p>
       </section>
       <section class="contact-link-container">
-        <a class="contact-link">Contact</a>
+        <RouterLink :to="`/coaches/${coach.id}/contact`" class="contact-link">Contact</RouterLink>
         <a class="view-details-link">View Details</a>
       </section>
     </section>
@@ -115,6 +115,7 @@ h2 {
 .contact-link {
   border: 1px solid #3d008d;
   background: none;
+  text-decoration: none;
 }
 
 .register-button,
