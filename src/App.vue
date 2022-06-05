@@ -2,7 +2,6 @@
   <main>
     <TheNavigation />
     <RouterView />
-		<button @click="this.$store.commit('addCoach')">see state</button>
   </main>
 </template>
 
