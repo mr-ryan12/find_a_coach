@@ -4,7 +4,7 @@
       <h1 class="main-title">Find a Coach</h1>
       <section class="nav-link-container">
         <RouterLink to="/coaches" @click="setActiveButton" :class="{ active: isCoachesBtnActive }">All Coaches</RouterLink>
-        <RouterLink to="requests" @click="setActiveButton" :class="{ active: isRequestsBtnActive }">Requests</RouterLink>
+        <RouterLink to="/requests" @click="setActiveButton" :class="{ active: isRequestsBtnActive }">Requests</RouterLink>
       </section>
     </section>
   </nav>

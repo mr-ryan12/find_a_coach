@@ -10,8 +10,8 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/coaches', component: CoachesSelection },
-    { path: '/requests', component: TheRequests },
     { path: '/coaches/:id/contact', component: ContactCoach, props: true},
+    { path: '/requests', component: TheRequests },
   ]
 })
 
