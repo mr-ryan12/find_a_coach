@@ -2,7 +2,7 @@
   <base-container>
     <section class="main-container">
       <h2 class="register-title">Register as a Coach Now!</h2>
-      <form>
+      <form @submit.prevent="handleSubmit">
         <section class="form-text-container">
           <label for="first-name">First Name</label>
           <input
@@ -40,6 +40,7 @@
               type="checkbox"
               id="frontend"
               name="frontend"
+              value="frontend"
               v-model="expertise"
             />
             <label for="frontend">Frontend Development</label>
@@ -49,6 +50,7 @@
               type="checkbox"
               id="backend"
               name="backend"
+              value="backend"
               v-model="expertise"
             />
             <label for="backend">Backend Development</label>
@@ -58,6 +60,7 @@
               type="checkbox"
               id="career"
               name="career"
+              value="career"
               v-model="expertise"
             />
             <label for="career">Career Development</label>
@@ -84,6 +87,32 @@ export default {
   },
   components: {
     BaseContainer
+  },
+  methods: {
+    handleSubmit() {
+      const newCoach = {
+        id: Date.now(),
+        firstName: this.firstName,
+        lastName: this.lastName,
+        description: this.description,
+        rate: this.rate,
+        topics: this.expertise
+      }
+      console.log(newCoach)
+      this.$store.dispatch('setAddCoach', {newCoach: newCoach})
+      this.clearInputs()
+    },
+    clearInputs() {
+      this.firstName = ''
+      this.lastName = ''
+      this.description = ''
+      this.rate = ''
+      this.expertise = []
+    }
+    // handleChange(event) {
+    //   console.log(this.expertise)
+    //   console.log(event)
+    // }
   }
 }
 </script>

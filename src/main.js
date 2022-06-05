@@ -37,8 +37,8 @@ const store = createStore({
     }
   },
   mutations: {
-    addCoach(state) {
-      console.log(state.coaches)
+    addCoach(state, payload) {
+      state.coaches.push(payload.newCoach)
     },
     resetState(state) {
       Object.assign(state, getDefaultState())
@@ -53,6 +53,9 @@ const store = createStore({
     },
     setFilterCoaches(context, payload) {
       return context.commit('setFilteredCoachesMutation', payload)
+    },
+    setAddCoach(context, payload) {
+      return context.commit('addCoach', payload)
     }
   }
 })
