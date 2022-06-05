@@ -8,18 +8,21 @@
       <h2 class="form-title">Interested? Reach out now!</h2>
       <section class="form-container">
         <form>
-          <label for="email">Your E-Mail</label>
+          <label for="email" class="email">Your E-Mail</label>
           <input 
             type="email"
+            id="email"
             name="email"
             v-model="email"
           />
-          <label for="message">Message</label>
-          <input
-            type="textarea"
+          <br />
+          <label for="message" class="message">Message</label>
+          <textarea
+            id="message"
             name="message"
             v-model="message"
           />
+          <br />
           <button>Send Message</button>
         </form>
       </section>
@@ -70,5 +73,23 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+input,
+label {
+  display: block;
+}
+
+label {
+  font-size: 2.25vh;
+}
+
+input,
+textarea {
+  width: 100%;
+}
+
+textarea {
+  height: 10vh;
 }
 </style>
