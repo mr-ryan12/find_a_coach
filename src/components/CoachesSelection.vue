@@ -1,62 +1,65 @@
 <template>
-  <section class="main-container">
-    <section class="find-coach-container">
-      <h2>Find Your Coach</h2>
-      <br />
-      <section class="checkbox-container">
-        <input
-          type="checkbox"
-          id="frontend"
-          name="frontend"
-          value="frontend"
-          checked
-          @change="filterCoaches"
-        />
-        <label for="frontend">Frontend</label>
-        <input
-          type="checkbox"
-          id="backend"
-          name="backend"
-          value="backend"
-          checked
-          @change="filterCoaches"
-        />
-        <label for="backend">Backend</label>
-        <input
-          type="checkbox"
-          id="career"
-          name="career"
-          value="career"
-          checked
-          @change="filterCoaches"
-        />
-        <label for="career">Career</label>
+  <base-container>
+    <h2>Find Your Coach</h2>
+    <br />
+    <section class="checkbox-container">
+      <input
+        type="checkbox"
+        id="frontend"
+        name="frontend"
+        value="frontend"
+        checked
+        @change="filterCoaches"
+      />
+      <label for="frontend">Frontend</label>
+      <input
+        type="checkbox"
+        id="backend"
+        name="backend"
+        value="backend"
+        checked
+        @change="filterCoaches"
+      />
+      <label for="backend">Backend</label>
+      <input
+        type="checkbox"
+        id="career"
+        name="career"
+        value="career"
+        checked
+        @change="filterCoaches"
+      />
+      <label for="career">Career</label>
+    </section>
+  </base-container>
+  <base-container>
+    <section class="header-button-container">
+      <button class="refresh-button">Refresh</button>
+      <button class="register-button">Register as Coach</button>
+    </section>
+    <section class="coach-card" v-for="coach in coaches" :key="coach.id">
+      <h3 class="coach-name">{{ coach.firstName }} {{ coach.lastName }}</h3>
+      <p>{{ `$${coach.rate}/hour` }}</p>
+      <section class="label-container">
+        <p v-for="topic in coach.topics" :key="topic" :class="topic">{{ topic.toUpperCase() }}</p>
+      </section>
+      <section class="contact-link-container">
+        <a class="contact-link">Contact</a>
+        <a class="view-details-link">View Details</a>
       </section>
     </section>
-    <section class="coaches-container">
-      <section class="header-button-container">
-        <button class="refresh-button">Refresh</button>
-        <button class="register-button">Register as Coach</button>
-      </section>
-      <section class="coach-card" v-for="coach in coaches" :key="coach.id">
-        <h3 class="coach-name">{{ coach.firstName }} {{ coach.lastName }}</h3>
-        <p>{{ `$${coach.rate}/hour` }}</p>
-        <section class="label-container">
-          <p v-for="topic in coach.topics" :key="topic" :class="topic">{{ topic.toUpperCase() }}</p>
-        </section>
-        <section class="contact-link-container">
-          <a class="contact-link">Contact</a>
-          <a class="view-details-link">View Details</a>
-        </section>
-      </section>
-    </section>
-  </section>
+  </base-container>
 </template>
 
 <script>
+import BaseContainer from '../ui/BaseContainer.vue'
+
 export default {
   data() {
     return this.initialState()
+  },
+  components: {
+    BaseContainer
   },
   inject: ['topics'],
   methods: {
@@ -94,22 +97,6 @@ export default {
 h2 {
   font-size: 3vh;
   font-weight: 900;
-}
-
-.main-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.find-coach-container,
-.coaches-container {
-  width: 50%;
-  margin-top: 5vh;
-  box-shadow: 0px 0px 20px grey;
-  padding: 20px;
-  border-radius: 20px;
 }
 
 .header-button-container {
