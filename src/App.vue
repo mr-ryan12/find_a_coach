@@ -81,4 +81,8 @@ table {
 #app {
   font-family: 'Anek Telugu', sans-serif;
 }
+
+button:hover {
+	cursor: pointer;
+}
 </style>

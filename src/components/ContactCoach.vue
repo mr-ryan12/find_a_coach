@@ -23,7 +23,9 @@
             v-model="message"
           />
           <br />
-          <button>Send Message</button>
+          <section class="button-container">
+            <button>Send Message</button>
+          </section>
         </form>
       </section>
     </base-container>
@@ -63,7 +65,7 @@ export default {
 
 form {
   align-self: center;
-  border: 1px solid grey;
+  border: 1px solid #CDCDCD;
   height: 90%;
   width: 70%;
   padding: 20px;
@@ -87,9 +89,25 @@ label {
 input,
 textarea {
   width: 100%;
+  border: 1px solid #CDCDCD;
 }
 
 textarea {
   height: 10vh;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  margin-top: 2vh;
+  background-color: #3d008d;
+  color: #fff;
+  border: none;
+  height: 5vh;
+  width: 9vw;
+  border-radius: 15px;
 }
 </style>
