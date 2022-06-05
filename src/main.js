@@ -6,12 +6,14 @@ import App from './App.vue'
 import CoachesSelection from './components/CoachesSelection.vue'
 import TheRequests from './components/TheRequests.vue'
 import ContactCoach from './components/ContactCoach.vue'
+import RegisterCoach from './components/RegisterCoach.vue'
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/coaches', component: CoachesSelection },
     { path: '/requests', component: TheRequests },
+    { path: '/register', component: RegisterCoach },
     { path: '/coaches/:id/contact', component: ContactCoach, props: true},
   ]
 })

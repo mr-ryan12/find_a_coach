@@ -35,7 +35,7 @@
   <base-container>
     <section class="header-button-container">
       <button class="refresh-button">Refresh</button>
-      <button class="register-button">Register as Coach</button>
+      <RouterLink to="/register" class="register-button">Register as Coach</RouterLink>
     </section>
     <section class="coach-card" v-for="coach in setCoaches" :key="coach.id">
       <h3 class="coach-name">{{ coach.firstName }} {{ coach.lastName }}</h3>
@@ -95,11 +95,13 @@ h2 {
   justify-content: space-between;
 }
 
-.header-button-container > button {
+.header-button-container > button,
+.header-button-container > a {
   width: auto;
   border-radius: 20px;
   padding: 15px;
   font-size: 2vh;
+  text-decoration: none;
 }
 
 .refresh-button,
