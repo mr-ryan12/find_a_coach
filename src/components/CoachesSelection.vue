@@ -37,7 +37,7 @@
       <button class="refresh-button">Refresh</button>
       <RouterLink to="/register" class="register-button">Register as Coach</RouterLink>
     </section>
-    <section class="coach-card" v-for="coach in setCoaches" :key="coach.id">
+    <!-- <section class="coach-card" v-for="coach in setCoaches" :key="coach.id">
       <h3 class="coach-name">{{ coach.firstName }} {{ coach.lastName }}</h3>
       <p>{{ `$${coach.rate}/hour` }}</p>
       <section class="label-container">
@@ -47,12 +47,22 @@
         <RouterLink :to="`/coaches/${coach.id}/contact`" class="contact-link">Contact</RouterLink>
         <a class="view-details-link">View Details</a>
       </section>
-    </section>
+    </section> -->
+    <CoachCard
+      v-for="coach in setCoaches"
+      :key="coach.id"
+      :id="coach.id"
+      :firstName="coach.firstName"
+      :lastName="coach.lastName"
+      :rate="coach.rate"
+      :topics="coach.topics"
+    />
   </base-container>
 </template>
 
 <script>
 import BaseContainer from '../ui/BaseContainer.vue'
+import CoachCard from './CoachCard.vue'
 
 export default {
   data() {
@@ -65,7 +75,8 @@ export default {
     }
   },
   components: {
-    BaseContainer
+    BaseContainer,
+    CoachCard
   },
   methods: {
     filterCoaches(event) {
@@ -133,48 +144,48 @@ h2 {
   border-color: #3d008d;
 }
 
-.coach-card {
-  border: 1px solid black;
-  padding: 1.5rem;
-  margin: 1rem 0rem;
-}
+// .coach-card {
+//   border: 1px solid black;
+//   padding: 1.5rem;
+//   margin: 1rem 0rem;
+// }
 
-.coach-name {
-  font-size: 2rem;
-}
+// .coach-name {
+//   font-size: 2rem;
+// }
 
-.label-container {
-  display: flex;
-}
+// .label-container {
+//   display: flex;
+// }
 
-.label-container > p {
-  width: 7rem;
-  height: 2.5rem;
-  line-height: 2.5rem;
-  text-align: center;
-  color: #fff;
-  font-weight: 900;
-  border: 1px solid black;
-  border-radius: 20px;
-  margin: 1rem 1rem 0 0;
-}
+// .label-container > p {
+//   width: 7rem;
+//   height: 2.5rem;
+//   line-height: 2.5rem;
+//   text-align: center;
+//   color: #fff;
+//   font-weight: 900;
+//   border: 1px solid black;
+//   border-radius: 20px;
+//   margin: 1rem 1rem 0 0;
+// }
 
-.frontend {
-  background-color: #3d008d;
-}
+// .frontend {
+//   background-color: #3d008d;
+// }
 
-.backend {
-  background-color: #71008d;
-}
+// .backend {
+//   background-color: #71008d;
+// }
 
-.career {
-  background-color: #8d006e;
-}
+// .career {
+//   background-color: #8d006e;
+// }
 
-.contact-link-container {
-  display: flex;
-  justify-content: flex-end;
-}
+// .contact-link-container {
+//   display: flex;
+//   justify-content: flex-end;
+// }
 
 .contact-link,
 .view-details-link {
