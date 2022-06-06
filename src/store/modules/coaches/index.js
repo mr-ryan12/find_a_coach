@@ -1,3 +1,7 @@
+import coachGetters from './getters'
+import coachActions from './actions'
+import coachMutations from './mutations'
+
 export default {
   state() {
     return {
@@ -21,19 +25,7 @@ export default {
       ]
     }
   },
-  getters: {
-    getCoaches(state) {
-      return state.coaches
-    }
-  },
-  mutations: {
-    addCoach(state, payload) {
-      state.coaches.push(payload.newCoach)
-    }
-  },
-  actions: {
-    setAddCoach(context, payload) {
-      return context.commit('addCoach', payload)
-    }
-  }
+  getters: coachGetters,
+  mutations: coachMutations,
+  actions: coachActions
 }
