@@ -2,7 +2,7 @@
   <base-container>
     <section class="main-container">
       <h2 class="register-title">Register as a Coach Now!</h2>
-      <form @submit.prevent="handleSubmit">
+      <form>
         <section class="form-text-container">
           <label for="first-name">First Name</label>
           <input
@@ -66,7 +66,7 @@
             <label for="career">Career Development</label>
           </div>
         </section>
-        <button class="register-button">Register</button>
+        <RouterLink to="/" class="register-button" @click.prevent="handleSubmit">Register</RouterLink>
       </form>
     </section>
   </base-container>
