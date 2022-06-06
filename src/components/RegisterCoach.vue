@@ -2,7 +2,7 @@
   <base-container>
     <section class="main-container">
       <h2 class="register-title">Register as a Coach Now!</h2>
-      <form>
+      <form @submit.prevent="handleSubmit">
         <section class="form-text-container">
           <label for="first-name">First Name</label>
           <input
@@ -66,7 +66,7 @@
             <label for="career">Career Development</label>
           </div>
         </section>
-        <RouterLink to="/" class="register-button" @click.prevent="handleSubmit">Register</RouterLink>
+        <button class="submit-registration">Register</button>
       </form>
     </section>
   </base-container>
@@ -99,6 +99,7 @@ export default {
         topics: this.expertise
       }
       this.$store.dispatch('setAddCoach', { newCoach })
+      this.$router.replace('/coaches')
       this.clearInputs()
     },
     clearInputs() {
@@ -112,7 +113,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .main-container {
   padding: 20px;
 }
@@ -149,13 +150,14 @@ textarea {
   flex-direction: column;
 }
 
-button {
+.submit-registration {
   margin-top: 1.5rem;
-  height: 5vh;
+  height: 4vh;
   width: 8vw;
   border-radius: 15px;
   background-color: #3d008d;
   color: #fff;
   border-color: #3d008d;
+  text-decoration: none;
 }
 </style>
