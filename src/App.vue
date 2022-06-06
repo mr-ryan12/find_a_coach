@@ -10,22 +10,9 @@
 import TheNavigation from './components/TheNavigation'
 
 export default {
-	data() {
-		return {
-			topics: ['frontend', 'backend', 'career'],
-		}
-	},
-	provide() {
-		return {
-			topics: this.topics,
-		}
-	},
   components: {
     TheNavigation
-  },
-	mounted() {
-		console.log(this.$store.state.coaches)
-	}
+  }
 }
 </script>
 

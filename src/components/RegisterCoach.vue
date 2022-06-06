@@ -98,8 +98,7 @@ export default {
         rate: this.rate,
         topics: this.expertise
       }
-      console.log(newCoach)
-      this.$store.dispatch('setAddCoach', {newCoach: newCoach})
+      this.$store.dispatch('setAddCoach', { newCoach })
       this.clearInputs()
     },
     clearInputs() {
@@ -109,10 +108,6 @@ export default {
       this.rate = ''
       this.expertise = []
     }
-    // handleChange(event) {
-    //   console.log(this.expertise)
-    //   console.log(event)
-    // }
   }
 }
 </script>
