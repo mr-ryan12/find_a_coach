@@ -1,6 +1,6 @@
-import coachGetters from './getters'
-import coachActions from './actions'
-import coachMutations from './mutations'
+import getters from './getters'
+import actions from './actions'
+import mutations from './mutations'
 
 export default {
   state() {
@@ -25,7 +25,7 @@ export default {
       ]
     }
   },
-  getters: coachGetters,
-  mutations: coachMutations,
-  actions: coachActions
+  getters,
+  actions,
+  mutations
 }
