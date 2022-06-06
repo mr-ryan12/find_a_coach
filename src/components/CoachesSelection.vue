@@ -55,30 +55,45 @@
 import BaseContainer from '../ui/BaseContainer.vue'
 
 export default {
+  data() {
+    return {
+      activeFilters: {
+        frontend: true,
+        backend: true,
+        career: true
+      }
+    }
+  },
   components: {
     BaseContainer
   },
-  inject: ['topics'],
   methods: {
     filterCoaches(event) {
-      if (!this.topics.includes(event.target.value) && event.target.checked) {
-        this.topics.push(event.target.value)
-      } else if (this.topics.length > 0 && !event.target.checked) {
-        this.topics = this.topics.filter(topic => topic !== event.target.value)
+      const filterId = event.target.id
+      const isActive = event.target.checked
+      const updatedFilters = {
+        ...this.activeFilters,
+        [filterId]: isActive
       }
-      this.$store.dispatch('setInitialState')
-      const filteredCoaches = []
-      this.setCoaches.forEach(coach => {
-        if (this.topics.some(topic => coach.topics.includes(topic))) {
-          filteredCoaches.push(coach)
-        }
-      })
-      this.$store.dispatch('setFilterCoaches', {filteredCoaches: filteredCoaches})
-    },
+      this.activeFilters = updatedFilters
+    }
   },
   computed: {
     setCoaches() {
-      return this.$store.getters.getCoaches
+      const coaches = this.$store.getters.getCoaches
+      
+      return coaches.filter(coach => {
+        if (this.activeFilters.frontend && coach.topics.includes('frontend')) {
+          return true
+        }
+        if (this.activeFilters.backend && coach.topics.includes('backend')) {
+          return true
+        }
+        if (this.activeFilters.career && coach.topics.includes('career')) {
+          return true
+        }
+        return false
+      })
     }
   }
 }

@@ -11,6 +11,7 @@ import RegisterCoach from './components/RegisterCoach.vue'
 const router = createRouter({
   history: createWebHistory(),
   routes: [
+    { path: '/', redirect: '/coaches' },
     { path: '/coaches', component: CoachesSelection },
     { path: '/requests', component: TheRequests },
     { path: '/register', component: RegisterCoach },
