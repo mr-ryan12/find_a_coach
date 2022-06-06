@@ -1,23 +1,25 @@
 import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
+// import { createRouter, createWebHistory } from 'vue-router'
 import { createStore } from 'vuex'
 
 import App from './App.vue'
-import CoachesSelection from './components/CoachesSelection.vue'
-import TheRequests from './components/TheRequests.vue'
-import ContactCoach from './components/ContactCoach.vue'
-import RegisterCoach from './components/RegisterCoach.vue'
+import router from './router/routes'
 
-const router = createRouter({
-  history: createWebHistory(),
-  routes: [
-    { path: '/', redirect: '/coaches' },
-    { path: '/coaches', component: CoachesSelection },
-    { path: '/requests', component: TheRequests },
-    { path: '/register', component: RegisterCoach },
-    { path: '/coaches/:id/contact', component: ContactCoach, props: true},
-  ]
-})
+// import CoachesSelection from './components/CoachesSelection.vue'
+// import TheRequests from './components/TheRequests.vue'
+// import ContactCoach from './components/ContactCoach.vue'
+// import RegisterCoach from './components/RegisterCoach.vue'
+
+// const router = createRouter({
+//   history: createWebHistory(),
+//   routes: [
+//     { path: '/', redirect: '/coaches' },
+//     { path: '/coaches', component: CoachesSelection },
+//     { path: '/requests', component: TheRequests },
+//     { path: '/register', component: RegisterCoach },
+//     { path: '/coaches/:id/contact', component: ContactCoach, props: true},
+//   ]
+// })
 
 const store = createStore({
   state() {
