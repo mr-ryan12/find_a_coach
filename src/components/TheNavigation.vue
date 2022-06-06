@@ -1,7 +1,7 @@
 <template>
   <nav>
     <section class="content-container">
-      <h1 class="main-title">Find a Coach</h1>
+      <RouterLink to="/" class="main-title">Find a Coach</RouterLink>
       <section class="nav-link-container">
         <RouterLink to="/coaches" @click="setActiveButton" :class="{ active: isCoachesBtnActive }">All Coaches</RouterLink>
         <RouterLink to="/requests" @click="setActiveButton" :class="{ active: isRequestsBtnActive }">Requests</RouterLink>
@@ -80,5 +80,14 @@ a.router-link-active {
 
 a {
   text-decoration: none;
+}
+
+.main-title {
+  margin-top: 0.25rem;
+  color: #FFF;
+  border: none;
+  &:hover {
+    border: none;
+  }
 }
 </style>
