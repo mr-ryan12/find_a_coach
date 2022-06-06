@@ -1,12 +1,12 @@
 <template>
   <section class="coach-card">
-    <h3 class="coach-name">{{ firstName }} {{ lastName }}</h3>
-    <p>{{ `$${rate}/hour` }}</p>
+    <h3 class="coach-name">{{ fullName }}</h3>
+    <p>{{ hourlyRate }}</p>
     <section class="label-container">
       <p v-for="topic in topics" :key="topic" :class="topic">{{ topic.toUpperCase() }}</p>
     </section>
     <section class="contact-link-container">
-      <RouterLink :to="`/coaches/${id}/contact`" class="contact-link">Contact</RouterLink>
+      <RouterLink :to="coachContactLink" class="contact-link">Contact</RouterLink>
       <a class="view-details-link">View Details</a>
     </section>
   </section>
@@ -14,7 +14,18 @@
 
 <script>
 export default {
-  props: ['firstName', 'lastName', 'rate', 'topics', 'id']
+  props: ['firstName', 'lastName', 'rate', 'topics', 'id'],
+  computed: {
+    fullName() {
+      return `${this.firstName} ${this.lastName}`
+    },
+    hourlyRate() {
+      return `$${this.rate}/hour`
+    },
+    coachContactLink() {
+      return `/coaches/${this.id}/contact`
+    }
+  }
 }
 </script>
 
