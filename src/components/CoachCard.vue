@@ -47,7 +47,7 @@ export default {
 .label-container > p {
   width: 7rem;
   height: 2.5rem;
-  line-height: 2.5rem;
+  line-height: 2.7rem;
   text-align: center;
   color: #fff;
   font-weight: 900;
@@ -75,6 +75,8 @@ export default {
 
 .contact-link,
 .view-details-link {
+  height: 3vh;
+  line-height: 3.5vh;
   margin: 0 1rem 0 0;
   padding: 15px;
   border-radius: 20px;

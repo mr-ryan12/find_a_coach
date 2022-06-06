@@ -63,7 +63,7 @@ nav {
 a {
   width: 9vw;
   height: 5vh;
-  line-height: 5vh;
+  line-height: 5.5vh;
   text-align: center;
   background: none;
   border: 1px solid transparent;

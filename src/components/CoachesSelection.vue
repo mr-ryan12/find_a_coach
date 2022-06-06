@@ -126,8 +126,10 @@ h2 {
 }
 
 .register-button {
+  height: 3vh;
   background-color: #3d008d;
   color: #fff;
   border-color: #3d008d;
+  line-height: 3.5vh;
 }
 </style>
