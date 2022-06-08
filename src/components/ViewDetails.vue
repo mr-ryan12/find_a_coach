@@ -9,7 +9,13 @@
       <a>Contact</a>
     </base-container>
     <base-container>
-      <base-topic></base-topic>
+      <section class="topics-container">
+        <base-topic
+          v-for="topic in foundCoach.topics"
+          :key="topic"
+          :class="topic"
+        >{{ topic.toUpperCase() }}</base-topic>
+      </section>
     </base-container>
   </section>
 </template>
@@ -45,3 +51,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.topics-container {
+  display: flex;
+}
+</style>
