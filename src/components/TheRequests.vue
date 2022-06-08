@@ -3,8 +3,9 @@
     <base-container v-for="request in setRequests" :key="request.id">
       <p>Date: {{ request.date }}</p>
       <p>Time: {{ request.time }}</p>
-      <p>Email: {{ request.email }}</p>
-      <p>Message: {{ request.message }}</p>
+      <p>Email: <a :href="`mailto:${request.email}`" target="_blank" class="email">{{ request.email }}</a></p>
+      <p class="message-header">Message</p>
+      <p>{{ request.message }}</p>
     </base-container>
   </section>
 </template>
@@ -19,13 +20,21 @@ export default {
   computed: {
     setRequests() {
       return this.$store.getters.getRequests
-    }
+    },
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.requests-container {
-  display: block;
+p {
+  margin: 0.5rem;
+}
+
+.message-header {
+  margin-top: 2rem;
+}
+
+.email {
+  text-decoration: none;
 }
 </style>
