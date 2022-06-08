@@ -8,7 +8,7 @@
     <base-container>
       <h2 class="container-header">Interested? Reach out now!</h2>
       <br />
-      <a>Contact</a>
+      <RouterLink :to="coachContactLink">Contact</RouterLink>
     </base-container>
     <base-container>
       <section class="topics-container">
@@ -42,7 +42,7 @@ export default {
     const coaches = this.$store.getters.getCoaches
     const coachId = Number(this.$route.params.id)
     const foundCoach = coaches.find(coach => coach.id === coachId)
-    console.log(foundCoach)
+
     this.foundCoach = foundCoach
   },
   computed: {
@@ -54,6 +54,9 @@ export default {
     },
     description() {
       return this.foundCoach.description
+    },
+    coachContactLink() {
+      return `/coaches/${this.$route.params.id}/contact`
     }
   }
 }
