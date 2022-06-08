@@ -8,7 +8,7 @@
     <base-container>
       <h2 class="container-header">Interested? Reach out now!</h2>
       <br />
-      <RouterLink :to="coachContactLink">Contact</RouterLink>
+      <RouterLink :to="coachContactLink" class="contact-link">Contact</RouterLink>
     </base-container>
     <base-container>
       <section class="topics-container">
@@ -79,5 +79,17 @@ export default {
 .rate {
   font-size: 1.50rem;
   font-weight: 900;
+}
+
+.contact-link {
+  height: 3vh;
+  line-height: 3.5vh;
+  margin: 0 1rem 0 0;
+  padding: 15px;
+  border-radius: 20px;
+  background-color: #3d008d;
+  color: #fff;
+  border-color: #3d008d;
+  text-decoration: none;
 }
 </style>
