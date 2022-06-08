@@ -7,7 +7,7 @@
     <base-container>
       <h2 class="form-title">Interested? Reach out now!</h2>
       <section class="form-container">
-        <form>
+        <form @submit.prevent="handleSubmit">
           <label for="email" class="email">Your E-Mail</label>
           <input 
             type="email"
@@ -57,6 +57,16 @@ export default {
   components: {
     BaseContainer,
     BaseTopic
+  },
+  methods: {
+    handleSubmit() {
+      const newRequest = {
+        id: Date.now(),
+        email: this.email,
+        message: this.message
+      }
+      this.$store.dispatch('addNewRequest', { newRequest })
+    }
   },
   mounted() {
     const coaches = this.$store.getters.getCoaches

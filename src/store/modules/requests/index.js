@@ -1,4 +1,6 @@
-import requestsMutations from './mutations'
+import mutations from './mutations'
+import actions from './actions'
+import getters from './getters'
 
 export default {
   state() {
@@ -8,5 +10,7 @@ export default {
       ]
     }
   },
-  mutations: requestsMutations
+  mutations: mutations,
+  actions: actions,
+  getters: getters
 }
