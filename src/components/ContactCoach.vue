@@ -1,8 +1,9 @@
 <template>
   <section>
     <base-container>
-      <h2 class="name">Ryan McBrizzle</h2>
-      <p class="rate">$1,000,000/second</p>
+      <!-- <h2 class="name">Ryan McBrizzle</h2> -->
+      <h2 class="name">{{ fullName }}</h2>
+      <p class="rate">{{ rate }}</p>
     </base-container>
     <base-container>
       <h2 class="form-title">Interested? Reach out now!</h2>
@@ -39,7 +40,8 @@ export default {
   data() {
     return {
       email: '',
-      message: ''
+      message: '',
+      foundCoach: {}
     }
   },
   components: {
@@ -47,6 +49,22 @@ export default {
   },
   mounted() {
     console.log(this.$route.params.id)
+    const coaches = this.$store.getters.getCoaches
+    console.log('coaches>>>>', coaches)
+    const coachId = Number(this.$route.params.id)
+    console.log('coachId>>>>>', coachId)
+    const foundCoach = coaches.find(coach => coach.id === coachId)
+    console.log('foundCoach>>>>', foundCoach)
+
+    this.foundCoach = foundCoach
+  },
+  computed: {
+    fullName() {
+      return this.foundCoach.firstName + ' ' + this.foundCoach.lastName
+    },
+    rate() {
+      return '$' + this.foundCoach.rate + '/hour'
+    }
   }
 }
 </script>
