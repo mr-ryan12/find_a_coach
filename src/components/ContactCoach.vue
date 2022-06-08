@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="main-container">
     <base-container>
       <h2 class="name">{{ fullName }}</h2>
       <p class="rate">{{ rate }}</p>
@@ -37,6 +37,7 @@
           :class="topic"
         >{{ topic.toUpperCase() }}</base-topic>
       </section>
+      <p class="description">{{ foundCoach.description }}</p>
     </base-container>
   </section>
 </template>
@@ -76,6 +77,9 @@ export default {
 </script>
 
 <style scoped>
+textarea {
+  font-family: inherit;
+}
 .name,
 .form-title {
   font-size: 3vh;
@@ -137,5 +141,10 @@ button {
 
 .topic-container {
   display: flex;
+}
+
+.description {
+  margin-top: 1rem;
+  font-size: 1.25rem;
 }
 </style>

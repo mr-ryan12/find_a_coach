@@ -13,6 +13,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .sub-container {
   width: 50%;
   margin-top: 5vh;

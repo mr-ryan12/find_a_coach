@@ -118,6 +118,10 @@ export default {
   padding: 20px;
 }
 
+textarea {
+  font-family: inherit;
+}
+
 input[type="text"],
 textarea {
   width: 100%;
