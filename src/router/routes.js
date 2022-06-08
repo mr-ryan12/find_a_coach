@@ -4,6 +4,7 @@ import CoachesSelection from '../components/CoachesSelection.vue'
 import TheRequests from '../components/TheRequests.vue'
 import ContactCoach from '../components/ContactCoach.vue'
 import RegisterCoach from '../components/RegisterCoach.vue'
+import ViewDetails from '../components/ViewDetails.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -13,6 +14,7 @@ const router = createRouter({
     { path: '/requests', component: TheRequests },
     { path: '/register', component: RegisterCoach },
     { path: '/coaches/:id/contact', component: ContactCoach, props: true},
+    { path: '/coaches/:id/details', component: ViewDetails, props: true},
   ]
 })
 
