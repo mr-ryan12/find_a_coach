@@ -1,12 +1,12 @@
 <template>
   <section>
     <base-container>
-      <h2>{{ fullName }}</h2>
+      <h2 class="container-header">{{ fullName }}</h2>
       <br />
-      <p>{{ rate }}</p>
+      <p class="rate">{{ rate }}</p>
     </base-container>
     <base-container>
-      <h2>Interested? Reach out now!</h2>
+      <h2 class="container-header">Interested? Reach out now!</h2>
       <br />
       <a>Contact</a>
     </base-container>
@@ -65,6 +65,16 @@ export default {
 }
 
 .description {
-  font-size: 1.05rem;
+  font-size: 1.25rem;
+}
+
+.container-header {
+  font-size: 1.75rem;
+  font-weight: 900;
+}
+
+.rate {
+  font-size: 1.50rem;
+  font-weight: 900;
 }
 </style>
