@@ -30,13 +30,20 @@
       </section>
     </base-container>
     <base-container>
-
+      <section class="topic-container">
+        <base-topic
+          v-for="topic in foundCoach.topics"
+          :key="topic"
+          :class="topic"
+        >{{ topic.toUpperCase() }}</base-topic>
+      </section>
     </base-container>
   </section>
 </template>
 
 <script>
 import BaseContainer from '../ui/BaseContainer.vue'
+import BaseTopic from '../ui/BaseTopic.vue'
 
 export default {
   data() {
@@ -47,7 +54,8 @@ export default {
     }
   },
   components: {
-    BaseContainer
+    BaseContainer,
+    BaseTopic
   },
   mounted() {
     const coaches = this.$store.getters.getCoaches
@@ -125,5 +133,9 @@ button {
   height: 5vh;
   width: 9vw;
   border-radius: 15px;
+}
+
+.topic-container {
+  display: flex;
 }
 </style>
