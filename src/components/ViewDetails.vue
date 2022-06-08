@@ -16,6 +16,7 @@
           :class="topic"
         >{{ topic.toUpperCase() }}</base-topic>
       </section>
+      <p class="description">{{ description }}</p>
     </base-container>
   </section>
 </template>
@@ -47,6 +48,9 @@ export default {
     },
     rate() {
       return '$' + this.foundCoach.rate + '/hour'
+    },
+    description() {
+      return this.foundCoach.description
     }
   }
 }
@@ -55,5 +59,10 @@ export default {
 <style lang="scss" scoped>
 .topics-container {
   display: flex;
+}
+
+.description {
+  margin-top: 1rem;
+  font-size: 1.05rem;
 }
 </style>
