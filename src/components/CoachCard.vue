@@ -11,7 +11,7 @@
     </section>
     <section class="contact-link-container">
       <RouterLink :to="coachContactLink" class="contact-link">Contact</RouterLink>
-      <a class="view-details-link">View Details</a>
+      <RouterLink :to="coachDetailsLink" class="view-details-link">View Details</RouterLink>
     </section>
   </section>
 </template>
@@ -33,6 +33,9 @@ export default {
     },
     coachContactLink() {
       return `/coaches/${this.id}/contact`
+    },
+    coachDetailsLink() {
+      return `/coaches/${this.id}/details`
     }
   }
 }
@@ -77,5 +80,9 @@ export default {
   background-color: #3d008d;
   color: #fff;
   border-color: #3d008d;
+}
+
+a {
+  text-decoration: none;
 }
 </style>
