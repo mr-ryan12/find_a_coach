@@ -1,9 +1,10 @@
 <template>
   <section class="requests-container">
     <base-container v-for="request in setRequests" :key="request.id">
+      <p>Date: {{ request.date }}</p>
+      <p>Time: {{ request.time }}</p>
       <p>Email: {{ request.email }}</p>
       <p>Message: {{ request.message }}</p>
-      <p>date: {{ setDate }}</p>
     </base-container>
   </section>
 </template>
@@ -18,10 +19,6 @@ export default {
   computed: {
     setRequests() {
       return this.$store.getters.getRequests
-    },
-    setDate() {
-      return new Date().toISOString()
-
     }
   }
 }

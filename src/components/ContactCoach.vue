@@ -60,7 +60,6 @@ export default {
   },
   methods: {
     handleSubmit() {
-      // const [date, time] = new Date().toISOString().split('T')
       const universalDate = new Date()
       const timezoneOffset = new Date().getTimezoneOffset()
       const [date, time] = new Date(universalDate.getTime() - (timezoneOffset * 60 * 1000)).toISOString().split('T')
@@ -71,11 +70,12 @@ export default {
         date: this.formatDate(date),
         time: this.formatTime(time)
       }
+
       this.$store.dispatch('addNewRequest', { newRequest })
     },
     formatDate(date) {
       const [year, month, day] = date.split('-')
-      console.log([month, day, year].join('/'));
+
       return [month, day, year].join('/')
     },
     formatTime(time) {
