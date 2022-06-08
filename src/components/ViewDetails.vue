@@ -1,15 +1,17 @@
 <template>
-  <base-container>
-    <h2>Ryan McBride</h2>
-    <p>$30/hour</p>
-  </base-container>
-  <base-container>
-    <h2>Interested? Reach out now!</h2>
-    <a>Contact</a>
-  </base-container>
-  <base-container>
-    <base-topic></base-topic>
-  </base-container>
+  <section>
+    <base-container>
+      <h2>{{ fullName }}</h2>
+      <p>{{ rate }}</p>
+    </base-container>
+    <base-container>
+      <h2>Interested? Reach out now!</h2>
+      <a>Contact</a>
+    </base-container>
+    <base-container>
+      <base-topic></base-topic>
+    </base-container>
+  </section>
 </template>
 
 <script>
@@ -20,6 +22,26 @@ export default {
   components: {
     BaseContainer,
     BaseTopic
+  },
+  data() {
+    return {
+      foundCoach: {}
+    }
+  },
+  mounted() {
+    const coaches = this.$store.getters.getCoaches
+    const coachId = Number(this.$route.params.id)
+    const foundCoach = coaches.find(coach => coach.id === coachId)
+    console.log(foundCoach)
+    this.foundCoach = foundCoach
+  },
+  computed: {
+    fullName() {
+      return this.foundCoach.firstName + ' ' + this.foundCoach.lastName
+    },
+    rate() {
+      return '$' + this.foundCoach.rate + '/hour'
+    }
   }
 }
 </script>
