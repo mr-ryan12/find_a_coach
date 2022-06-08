@@ -4,12 +4,6 @@
   </p>
 </template>
 
-<script>
-export default {
-  props: ['topics']
-}
-</script>
-
 <style lang="scss" scoped>
 .frontend {
   background-color: #3d008d;

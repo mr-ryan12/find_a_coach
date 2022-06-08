@@ -1,7 +1,6 @@
 <template>
   <section>
     <base-container>
-      <!-- <h2 class="name">Ryan McBrizzle</h2> -->
       <h2 class="name">{{ fullName }}</h2>
       <p class="rate">{{ rate }}</p>
     </base-container>
@@ -31,7 +30,7 @@
       </section>
     </base-container>
     <base-container>
-      
+
     </base-container>
   </section>
 </template>
