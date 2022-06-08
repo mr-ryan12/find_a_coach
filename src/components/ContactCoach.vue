@@ -60,12 +60,39 @@ export default {
   },
   methods: {
     handleSubmit() {
+      // const [date, time] = new Date().toISOString().split('T')
+      const universalDate = new Date()
+      const timezoneOffset = new Date().getTimezoneOffset()
+      const [date, time] = new Date(universalDate.getTime() - (timezoneOffset * 60 * 1000)).toISOString().split('T')
       const newRequest = {
         id: Date.now(),
         email: this.email,
-        message: this.message
+        message: this.message,
+        date: this.formatDate(date),
+        time: this.formatTime(time)
       }
       this.$store.dispatch('addNewRequest', { newRequest })
+    },
+    formatDate(date) {
+      const [year, month, day] = date.split('-')
+      console.log([month, day, year].join('/'));
+      return [month, day, year].join('/')
+    },
+    formatTime(time) {
+      let [hour, minutes] = time.split(':')
+      let formattedTime;
+    
+      if (hour === '00') {
+        hour = '12'
+        formattedTime = [hour, minutes].join(':') + 'am'
+      } else if (hour > 12) {
+        hour -= 12
+        formattedTime = [hour, minutes].join(':') + 'pm'
+      } else {
+        formattedTime = [hour, minutes].join(':') + 'am'
+      }
+
+      return formattedTime
     }
   },
   mounted() {
