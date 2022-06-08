@@ -3,7 +3,11 @@
     <h3 class="coach-name">{{ fullName }}</h3>
     <p>{{ hourlyRate }}</p>
     <section class="label-container">
-      <p v-for="topic in topics" :key="topic" :class="topic">{{ topic.toUpperCase() }}</p>
+      <base-topic
+        v-for="topic in topics"
+        :key="topic"
+        :class="topic"
+      >{{ topic.toUpperCase() }}</base-topic>
     </section>
     <section class="contact-link-container">
       <RouterLink :to="coachContactLink" class="contact-link">Contact</RouterLink>
@@ -13,8 +17,13 @@
 </template>
 
 <script>
+import BaseTopic from '../ui/BaseTopic'
+
 export default {
   props: ['firstName', 'lastName', 'rate', 'topics', 'id'],
+  components: {
+    BaseTopic
+  },
   computed: {
     fullName() {
       return `${this.firstName} ${this.lastName}`
@@ -42,30 +51,6 @@ export default {
 
 .label-container {
   display: flex;
-}
-
-.label-container > p {
-  width: 7rem;
-  height: 2.5rem;
-  line-height: 2.7rem;
-  text-align: center;
-  color: #fff;
-  font-weight: 900;
-  border: 1px solid black;
-  border-radius: 20px;
-  margin: 1rem 1rem 0 0;
-}
-
-.frontend {
-  background-color: #3d008d;
-}
-
-.backend {
-  background-color: #71008d;
-}
-
-.career {
-  background-color: #8d006e;
 }
 
 .contact-link-container {

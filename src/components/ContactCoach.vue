@@ -30,6 +30,9 @@
         </form>
       </section>
     </base-container>
+    <base-container>
+      
+    </base-container>
   </section>
 </template>
 
@@ -48,13 +51,9 @@ export default {
     BaseContainer
   },
   mounted() {
-    console.log(this.$route.params.id)
     const coaches = this.$store.getters.getCoaches
-    console.log('coaches>>>>', coaches)
     const coachId = Number(this.$route.params.id)
-    console.log('coachId>>>>>', coachId)
     const foundCoach = coaches.find(coach => coach.id === coachId)
-    console.log('foundCoach>>>>', foundCoach)
 
     this.foundCoach = foundCoach
   },
