@@ -2,10 +2,12 @@
   <section>
     <base-container>
       <h2>{{ fullName }}</h2>
+      <br />
       <p>{{ rate }}</p>
     </base-container>
     <base-container>
       <h2>Interested? Reach out now!</h2>
+      <br />
       <a>Contact</a>
     </base-container>
     <base-container>
@@ -16,6 +18,7 @@
           :class="topic"
         >{{ topic.toUpperCase() }}</base-topic>
       </section>
+      <br />
       <p class="description">{{ description }}</p>
     </base-container>
   </section>
@@ -62,7 +65,6 @@ export default {
 }
 
 .description {
-  margin-top: 1rem;
   font-size: 1.05rem;
 }
 </style>
